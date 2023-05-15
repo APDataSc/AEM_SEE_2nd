@@ -5,9 +5,9 @@
 #                        Sociedad Ecuatoriana de Estadística
 #
 #     Fecha de elaboración:   05/10/2020
-#     Última actualización:   14/05/2021
+#     Última actualización:   15/05/2023
 #     Actualizado por:        Andrés Peña M.               
-#     Contacto:               Andrés Peña M. (a.pena@rusersgroup.com)
+#     Contacto:               Andrés Peña M. (agpena@colmex.mx)
 #     Organización:           R Users Group - Ecuador
 #                             
 #
@@ -32,20 +32,21 @@ rm(list=ls())
 library(readstata13)
 library(survey)
 library(srvyr)
+library(ggplot2)
 
 #Colocar directorio entre las comillas ""
-setwd("C:\\Users\\usuario\\Desktop\\RUGE\\bdd\\BDD_MULTI_2020_12_STATA14")
-setwd("C:\\Users\\apena\\Desktop\\INEC 2021\\TICs\\BDD_MULTI_2020_12_STATA14")
+setwd("")
+
 # ==============================================================================*
 #     INDICADORES A NIVEL DE PERSONAS                                                                                                                                                                              
 # ==============================================================================* 
 
 #Base de Educación Actividad Física y TIC´s
-bdd_educación_actfisica_tics <- read.dta13("202012_multibdd_educación_actfisica_tics.dta", 
+bdd_educación_actfisica_tics <- read.dta13("bases/202012_multibdd_educación_actfisica_tics.dta", 
                                            convert.factors = FALSE)
 
 #Base de datos de Personas
-bdd_personas <- read.dta13("202012_multibdd_personas.dta", 
+bdd_personas <- read.dta13("bases/202012_multibdd_personas.dta", 
                            convert.factors = FALSE)
 
 #Base de Educación Actividad Física y TIC´s con sexo
@@ -93,24 +94,27 @@ table(d2$variables$s1p2)
 # Área
 table(d2$variables$area)
 
+# Usa o no internet
+table(d2$variables$s7p2) 
+
 # Horas de uso de internet
-table(d2$variables$s7p2)
 table(d2$variables$s7p5)
 
 # Edad
-table(d2$variables$s1p3)
-table(d2$variables$edad)
+table(d2$variables$s1p3) # original
+table(d2$variables$edad) # recodificada
 
 
 # Peso medio por edad
-tab_weights <- d2 %>%
-  group_by(edad) %>%
-  summarize(avg_wt = mean(fexp))
+# tab_weights <- d2 %>%
+#   group_by(edad) %>%
+#   summarize(avg_wt = mean(fexp))
 
 
-table(d2$variables$s7p2)
 
 # Uso de internet
+table(d2$variables$s7p2) #Sin ponderadores
+
 tab_w <- svytable(~s7p2, design = d2)
 class(tab_w)
 
@@ -121,23 +125,24 @@ tab_w <- tab_w %>%
   as.data.frame() %>%
   mutate(Prop = Freq/sum(Freq))
 
-# Crear un barplot
+# Crear un barplot de Uso de internet
 ggplot(data = tab_w,
        mapping = aes(x = s7p2, y = Prop)) + 
   geom_col()
 
+
 "Tablas de contingencia"
-# 
+# Uso de internet
 tab_D <- svytable(~s7p2,
                   design = d2)
 tab_D
 
-# 
+# Edad
 tab_H <- svytable(~edad,
                   design = d2)
 tab_H
 
-# 
+# Uso de internet x edad
 tab_DH <- svytable(~s7p2 + edad,
                    design = d2)
 tab_DH
@@ -199,7 +204,7 @@ svychisq(~s7p2 + edad,
 "----------------------------------------------------------"
 "Variables numericas"
 
-# 
+# Horas de uso de internet
 svymean(x = ~s7p5, 
         design = d2,
         na.rm = TRUE)
@@ -226,7 +231,7 @@ svyquantile(x = ~s7p5,
 "Gráfica de barra"
 # 
 out <- svyby(formula = ~s7p5, 
-             by = ~s1p2, 
+             by = ~s1p2, #sexo
              design = d2, 
              FUN = svymean, 
              na.rm = TRUE, 
@@ -235,7 +240,7 @@ out <- svyby(formula = ~s7p5,
 # 
 ggplot(data = out, mapping = aes(x=s1p2, y=s7p5)) +
   geom_col() + 
-  labs(y="Average Nightly Sleep")
+  labs(y="Horas promedio de uso de internet")
 
 
 "Gráfica de barra con error"
