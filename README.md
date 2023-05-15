@@ -3,7 +3,7 @@
 ## Sociedad Ecuatoriana de Estadística
 
 ### Andrés Peña M.
-[agpena@colmex.mx](agpena@colmex.mx)
+[agpena@colmex.mx](mailto: agpena@colmex.mx)
 
 Repositorio del material del curso de muestreo con R. 
 
