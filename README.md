@@ -1,12 +1,14 @@
 # Análisis de Encuestas por Muestreo con R - 2da Edición
 
+## Mayo, 2023 
+
 ## Sociedad Ecuatoriana de Estadística
 
 ### Andrés Peña M.
 [agpena@colmex.mx](mailto:agpena@colmex.mx)
 
-Repositorio del material del curso de muestreo con R. 
 
+Repositorio del material del curso de muestreo con R. 
 
 ## Estructura
 * bases : datos de entrada
