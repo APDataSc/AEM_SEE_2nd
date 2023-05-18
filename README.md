@@ -8,8 +8,10 @@
 
 ## Estructura
 * `bases` : datos de entrada
-* `slides` : presentaciones del curso
+* `onenote` : apuntes de clase
 * `script` : código para replicar el análisis y las visualizaciones
+* `slides` : presentaciones del curso
+
 
 #### Bibliografía:
 [Bibliografía clásica](https://drive.google.com/drive/folders/1nKK4FFTld8COBd3Pb7KicU_AguFwDNyu)
