@@ -5,7 +5,7 @@
 #                        Sociedad Ecuatoriana de Estadística
 #
 #     Fecha de elaboración:   05/10/2020
-#     Última actualización:   14/05/2021
+#     Última actualización:   18/05/2023
 #     Actualizado por:        Andrés Peña M.               
 #     Contacto:               Andrés Peña M. (agpena@colmex.mx)
 #     Organización:           R Users Group - Ecuador
@@ -25,7 +25,7 @@
 
 setwd("") #carpeta de trabajo
 
-datos <- read.csv("educacion.txt") #lectura de datos
+datos <- read.csv("bases/educacion.txt") #lectura de datos
 names(datos)
 
 
