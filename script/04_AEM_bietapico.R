@@ -4,10 +4,10 @@
 #                       Taller de Análisis de Encuestas con R                        
 #                        Sociedad Ecuatoriana de Estadística
 #
-#     Última actualización:   09/12/2021
+#     Última actualización:   25/05/2023
 #     Creado por:             Patricia Romero M.
 #     Actualizado por:        Andrés Peña M.               
-#     Contacto:               Andrés Peña M. (a.pena@rusersgroup.com)
+#     Contacto:               Andrés Peña M. (agpena@colmex.mx)
 #     Organización:           R Users Group - Ecuador
 #                             
 #
