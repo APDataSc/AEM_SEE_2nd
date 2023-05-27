@@ -18,4 +18,4 @@
 
 #### Evaluaciones:
 * [Evaluación 1](https://forms.gle/AMHAjiAU6VkeQBAA9), 40%
-* [Evaluación 2](https://github.com/APDataSc/AEM_SEE_2nd), 60%
+* [Evaluación 2](https://forms.gle/cquKW5Hp294LLvxc7), 60%
